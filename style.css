@@ -1,0 +1,191 @@
+:root
+{
+    --size:40%;
+}
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Neue', sans-serif;
+    box-sizing: border-box;
+}
+.wrapper
+{
+    color: rgba(0,0,0,0.8);
+}
+.heading
+{
+    padding: 5px;
+    color: white;
+}
+.canvas
+{
+    width: auto;
+    min-width: 80%;
+    margin: 0 auto;
+    box-shadow: 0 0 15px 5px rgba(0,0,0,0.3);
+    padding: 12px;
+}
+#c
+{
+    margin: 0 auto;
+    display: block;
+    border: 1px solid rgb(179, 179, 179);
+}
+button,input,label
+{
+    padding: 5px;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: 0 2px 2px 2px rgba(0,0,0,0.2);
+    border: 1px solid grey;
+}
+input
+{
+    font-family: 'Teko';
+}
+label
+{
+    border: none;
+    box-shadow: none;
+}
+button:active,input:active
+{
+    transform: scale(1.1);
+}
+header
+{
+    padding: 12px;
+    overflow: hidden;
+    background:linear-gradient(rgb(255, 0, 76),rgb(255, 0, 76),rgb(117, 0, 0));
+    text-align: center;
+}
+h1
+{
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 3em;
+    margin: 24px auto;
+}
+h3,h5
+{
+    margin: 0 auto;
+    font-weight: lighter;
+}
+.choose
+{
+    padding: 20px;
+    margin: 20px auto;
+}
+#imgFile
+{
+    overflow: hidden;
+    display: block;
+    margin: 10px 0;
+}
+.inp, .ips
+{
+    box-shadow: 0 0 5px 2px rgba(0,0,0,0.2);
+    padding: 20px;
+    overflow: hidden;
+    display: none;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
+}
+.inp>*, .ips>*
+{
+    flex-basis: 40%;
+    margin: 10px;
+    text-align: center;
+}
+.ranged
+{
+    padding: 0;
+    box-shadow: none;
+}
+span
+{
+    display: block;
+    flex-basis: 100%;
+}
+hr{
+    margin: 10px auto;
+}
+p:first-of-type
+{
+    padding-left: 5px;
+    display: inline-block;
+}
+.feet
+{
+    overflow: hidden;
+    padding: 12px;
+    text-align: center;
+}
+.btns
+{
+    margin-bottom: 15px;
+}
+#extend
+{
+    color: blue;
+    text-decoration: underline;
+}
+#extend:visited
+{
+    color: rgba(0,0,0,0.5);
+}
+#ext
+{
+    
+    padding: 5px;
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+#ext>*
+{
+    width: var(--size);
+    overflow: hidden;
+    padding: 15px;
+    display: block;
+    background-color: rgba(0,0,0,0.1);
+    margin: 7px;
+}
+.imageee
+{
+    width: var(--size);
+}
+.ap{
+    padding: 15px;
+}
+@media all and (max-width: 500px)
+{
+    body
+    {
+        font-size: 0.6em;
+    }
+    .heading
+    {
+        margin: 1px;
+    }
+    .inp>*, .ips>*
+    {
+        flex-basis: 100%;
+    }
+    label,p
+    {
+        font-size: 1.1em;
+    }
+    #ext>*
+    {
+        width: 100%;
+    }
+    .imageee
+    {
+        width: 100%;
+    }
+}

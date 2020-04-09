@@ -249,3 +249,9 @@ save.forEach((s)=>
         console.log("saved");
     });
 });
+
+
+//make toggle
+document.querySelector('#extend').addEventListener('click',(e)=>{
+    document.querySelector('#ext').style.display="flex";
+})
