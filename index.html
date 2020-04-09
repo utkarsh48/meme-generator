@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap" rel="stylesheet">
     <title>MEME generator!</title>
     <style>
         :root
@@ -13,11 +15,16 @@
         {
             margin: 0;
             padding: 0;
-            font-family: sans-serif;
+            font-family: 'Comic Neue', sans-serif;
             box-sizing: border-box;
+        }
+        .wrapper
+        {
+            color: rgba(0,0,0,0.8);
         }
         .heading
         {
+            padding: 5px;
             color: white;
         }
         .canvas
@@ -30,11 +37,11 @@
         #c
         {
             margin: 0 auto;
-            display: block;
+            display: block;/*
             max-width: var(--size);
             max-height: var(--size);
             width: 100vw;
-            height: 100vw;
+            height: 100vw;*/
         }
         button,input,label
         {
@@ -44,6 +51,10 @@
             box-shadow: 0 2px 2px 2px rgba(0,0,0,0.2);
             border: 1px solid grey;
         }
+        input
+        {
+            font-family: 'Teko';
+        }
         label
         {
             border: none;
@@ -51,27 +62,37 @@
         }
         button:active,input:active
         {
-            transform: scale(1.5);
+            transform: scale(1.1);
         }
         header
         {
+            padding: 12px;
             overflow: hidden;
             background:linear-gradient(rgb(255, 0, 76),rgb(255, 0, 76),rgb(117, 0, 0));
             text-align: center;
         }
         h1
         {
+            font-family: sans-serif;
+            font-weight: 700;
+            font-size: 3em;
             margin: 24px auto;
         }
         h3,h5
         {
-            margin: 12px auto;
+            margin: 0 auto;
             font-weight: lighter;
         }
         .choose
         {
             padding: 20px;
             margin: 20px auto;
+        }
+        #imgFile
+        {
+            overflow: hidden;
+            display: block;
+            margin: 10px 0;
         }
         .inp, .ips
         {
@@ -84,18 +105,50 @@
         }
         .inp>*, .ips>*
         {
+            flex-basis: 40%;
             margin: 10px;
             text-align: center;
+        }
+        .ranged
+        {
+            padding: 0;
+            box-shadow: none;
         }
         span
         {
             display: block;
             flex-basis: 100%;
         }
-        p
+        p:first-of-type
         {
             display: inline;
         }
+        .feet
+        {
+            overflow: hidden;
+            padding: 12px;
+            text-align: center;
+        }
+        @media all and (max-width: 500px)
+        {
+            body
+            {
+                font-size: 0.6em;
+            }
+            .heading
+            {
+                margin: 1px;
+            }
+            .inp>*, .ips>*
+            {
+                flex-basis: 100%;
+            }
+            label
+            {
+                font-size: 1.1em;
+            }
+        }
+
 
     </style>
 </head>
@@ -107,39 +160,46 @@
             <h5 class="heading">Create some awesome memes here</h5>
         </header>
         <div class="canvas">
-            <canvas id="c" width="640" height="640"></canvas>
+            <canvas id="c"></canvas>
         </div>
         <div class="choose">
             <div class="img-choose">
                 <input type="file" id="imgFile">
-                <i></i>
+                <p>Select mode: </p>
                 <button id="auto">Default</button>
                 <button id="manual">Manual</button>
             </div>
             <div class="inp">
-                <input type="text" id="superText" placeholder="Your Text">
-                <label for="superSize">Size</label>
-                <input type="range" min="10" name="superSize" value="32" max="100" id="superSize">
-                <label for="superY">Y-offset</label>
-                <input type="range" min="0" name="superY" value="100" max="640" id="superY">
+                <label for="superText">Text:</label>
+                <input type="text" name="superText" id="superText" placeholder="Your Text">
+                <label for="superSize">Size:</label>
+                <input class="ranged" type="range" min="10" name="superSize" value="32" max="100" id="superSize">
+                <label for="superY">Y-offset:</label>
+                <input class="ranged" type="range" min="0" name="superY" value="100" max="640" id="superY">
                 <button id="plus">+</button>
                 <button id="clicked">Click</button>
                 <span>Click
-                    <button id="save">Save</button> to get link.
-                    <a id="cor">Open this Link in new tab</a>
+                    <button class="save">Save</button> to get link.
+                    <a class="cor">Open this Link in new tab</a>
                 </span>
             </div>
             <div class="ips">
-                <input type="text" id="topText" placeholder="top text">
-                <input type="text" id="bottomText" placeholder="bottom text">
-                
-                <input type="text" id="high" placeholder="distance from edges">
+                <label for="topText">Top Text: </label>
+                <input type="text" name="topText" id="topText" placeholder="Enter text here">
+                <label for="bottomText">Bottom Text: </label>
+                <input type="text" name="bottomText" id="bottomText" placeholder="bottom text">
+                <label for="distText">Distance from edges: </label>
+                <input type="text" name="distText" id="high" placeholder="integer value">
                 <span>Click
                     <button id="refresh">Refresh</button> to see results. Click
-                    <button id="save">Save</button> to get link.
-                    <a id="cor">Open this Link in new tab</a>
+                    <button class="save">Save</button> to get link.
+                    <a class="cor">Open this Link in new tab</a>
                 </span>
             </div>
+        </div>
+        <div class="feet">
+            <p>*type in uppercase to make memes readable</p>
+            <p>*use square images for best results</p>
         </div>
     </div>
     <script src="canvas.js"></script>

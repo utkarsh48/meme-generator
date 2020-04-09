@@ -14,7 +14,8 @@ window.imgCan=new Image();
 window.high=100;
 window.topText="";
 window.bottomText="";
-
+window.height0="";
+window.width0="";
 
 //get image file and load it into image object
 
@@ -71,14 +72,26 @@ document.getElementById("manual").addEventListener('click',(e)=>
 
 
 
-/////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth////////////////////
 function fuon1()
 {
 //on loading image
     window.imgCan.onload=()=>
     {
+        window.height0=window.imgCan.height;
+        window.width0=window.imgCan.width;
+        c.height=window.height0;
+        c.width=window.width0;
+        const w=screen.width;
+        const h=screen.height;
+        while(c.height >h  || c.width >w)
+        {
+            c.height/=1.1;
+            c.width/=1.1;
+        }
+        console.log(h,c.height,w,c.width);
         ctx.drawImage(window.imgCan,0,0,c.width,c.height);
-        draw();
+        //draw();
     }
 
     const textInterpret=(e)=>
@@ -110,7 +123,7 @@ function fuon1()
     const draw=()=>{
         
         ctx.textAlign="center";
-        ctx.font="42px impact";
+        ctx.font=`42px Teko`;
         fsize=parseInt(ctx.font[0])*10+parseInt(ctx.font[1]);
         ctx.fillStyle="white";
         //top
@@ -124,19 +137,19 @@ function fuon1()
         ctx.lineWidth=2;
         ctx.strokeStyle='black';
         ctx.strokeText(window.bottomText, c.width/2, c.height-window.high);
+//////////////////////////////alter
+
+
+
     }
     //refresh
     refresh.addEventListener("click",()=>{
         ctx.drawImage(window.imgCan,0,0,c.width,c.height);
+        
+
         draw();
     })
-
-    var save= document.getElementById('save');
-    save.addEventListener('click', function (e) {
-        var dataURL = c.toDataURL('image/png');
-        document.getElementById("cor").href=dataURL;
-        
-    });
+    
 
 }
 
@@ -146,6 +159,18 @@ function fuon2()
     //on loading image
     window.imgCan.onload=()=>
     {
+        window.height0=window.imgCan.height;
+        window.width0=window.imgCan.width;
+        c.height=window.height0;
+        c.width=window.width0;
+        const w=screen.width;
+        const h=screen.height;
+        while(c.height >h  || c.width >w)
+        {
+            c.height/=1.1;
+            c.width/=1.1;
+        }
+        console.log(h,c.height,w,c.width);
         ctx.drawImage(window.imgCan,0,0,c.width,c.height);
     }
 
@@ -180,7 +205,7 @@ function fuon2()
         ctx.drawImage(window.imgCan,0,0,c.width,c.height);
         ctx.fillStyle="white";
         ctx.textAlign='center';
-        ctx.font=`${window.sudoSize}px impact`;
+        ctx.font=`${window.sudoSize}px Teko`;
         ctx.fillText(window.sudoText, c.width/2, parseInt(window.sudoY));
         ctx.lineWidth=2;
         ctx.strokeStyle='black';
@@ -189,13 +214,14 @@ function fuon2()
         ctx.save();
         console.log(sudoText,sudoSize,sudoY);
     }
-    //bug in add
+
+
     let add=()=>
     {
         ctx.restore();
         ctx.fillStyle="white";
         ctx.textAlign='center';
-        ctx.font=`${window.sudoSize}px impact`;
+        ctx.font=`${window.sudoSize}px Teko`;
         ctx.fillText(window.sudoText, c.width/2, parseInt(window.sudoY));
         ctx.lineWidth=2;
         ctx.strokeStyle='black';
@@ -208,3 +234,18 @@ function fuon2()
     document.getElementById("clicked").addEventListener("click",draw);
     document.getElementById("plus").addEventListener("click",add);
 }
+
+//save
+var save= document.querySelectorAll('.save');
+save.forEach((s)=>
+{   s.addEventListener('click', function (e) 
+    {
+        var dataURL = c.toDataURL('image/png');
+        document.querySelectorAll(".cor").forEach((i)=>
+        {
+            i.href=dataURL;
+        });
+        
+        console.log("saved");
+    });
+});
