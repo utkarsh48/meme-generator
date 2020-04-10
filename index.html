@@ -39,12 +39,15 @@
         <!--manual-->
         <div class="inp">
             <label for="superText">Text:</label>
-            <input type="text" name="superText" id="superText" placeholder="Your Text">
+            <textarea type="text" name="superText" id="superText" placeholder="Your Text"></textarea>
             <label for="superSize">Size:</label>
             <input class="ranged" type="range" min="10" name="superSize" value="32" max="100" id="superSize">
             <label for="superY">Y-offset:</label>
             <input class="ranged" type="range" min="0" name="superY" value="100" max="640" id="superY">
             
+            <label for="superY">X-offset:</label>
+            <input class="ranged" type="range" min="0" name="superX" value="100" max="640" id="superX">
+
             <button id="plus">+</button>
             <button id="clicked">Click</button>
             <span>Click '+' to add multiple lines. 
@@ -59,9 +62,9 @@
         <!--basic-->
         <div class="ips">
             <label for="topText">Top Text: </label>
-            <input type="text" name="topText" id="topText" placeholder="Enter text here">
+            <textarea type="text" name="topText" id="topText" placeholder="Enter text here"></textarea>
             <label for="bottomText">Bottom Text: </label>
-            <input type="text" name="bottomText" id="bottomText" placeholder="bottom text">
+            <textarea type="text" name="bottomText" id="bottomText" placeholder="bottom text"></textarea>
             <label for="distText">Distance from edges: </label>
             <input type="text" name="distText" id="high" placeholder="integer value">
             <span>Click

@@ -177,10 +177,12 @@ function fuon2()
     const sudo=[
         document.getElementById("superText"),
         document.getElementById("superSize"),
-        document.getElementById("superY")]
+        document.getElementById("superY"),
+        document.getElementById("superX")]
     window.sudoText="Your Text";
     window.sudoSize="42";
     window.sudoY="100";
+    window.sudoX="100";
     const fxnS=(e)=>
     {
         if(e.target.id==="superText")
@@ -195,6 +197,10 @@ function fuon2()
         {
             window.sudoY=e.target.value;
         }
+        else if(e.target.id==="superX")
+        {
+            window.sudoX=e.target.value;
+        }
     }
     sudo.forEach((sud)=>{
         sud.addEventListener("input",fxnS);
@@ -206,10 +212,10 @@ function fuon2()
         ctx.fillStyle="white";
         ctx.textAlign='center';
         ctx.font=`${window.sudoSize}px Teko`;
-        ctx.fillText(window.sudoText, c.width/2, parseInt(window.sudoY));
+        ctx.fillText(window.sudoText, parseInt(window.sudoX), parseInt(window.sudoY));
         ctx.lineWidth=2;
         ctx.strokeStyle='black';
-        ctx.strokeText(window.sudoText, c.width/2, parseInt(window.sudoY));
+        ctx.strokeText(window.sudoText, parseInt(window.sudoX), parseInt(window.sudoY));
         
         ctx.save();
         console.log(sudoText,sudoSize,sudoY);
