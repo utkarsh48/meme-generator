@@ -253,5 +253,10 @@ save.forEach((s)=>
 
 //make toggle
 document.querySelector('#extend').addEventListener('click',(e)=>{
-    document.querySelector('#ext').style.display="flex";
+    if(document.querySelector('#ext').style.display==="flex")
+    {
+        document.querySelector('#ext').style.display="none";
+    }
+    else
+        document.querySelector('#ext').style.display="flex";
 })
