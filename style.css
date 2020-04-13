@@ -14,11 +14,6 @@
 {
     color: rgba(0,0,0,0.8);
 }
-.heading
-{
-    padding: 5px;
-    color: white;
-}
 .canvas
 {
     width: auto;
@@ -33,33 +28,17 @@
     display: block;
     border: 1px solid rgb(179, 179, 179);
 }
-button,input,label,textarea
-{
-    padding: 5px;
-    border-radius: 5px;
-    outline: none;
-    box-shadow: 0 2px 2px 2px rgba(0,0,0,0.2);
-    border: 1px solid grey;
-}
-input, textarea
-{
-    font-family: 'Teko';
-}
-label
-{
-    border: none;
-    box-shadow: none;
-}
-button:active
-{
-    transform: scale(1.1);
-}
 header
 {
     padding: 12px;
     overflow: hidden;
     background:linear-gradient(rgb(255, 0, 76),rgb(255, 0, 76),rgb(117, 0, 0));
     text-align: center;
+}
+.heading
+{
+    padding: 5px;
+    color: white;
 }
 h1
 {
@@ -73,141 +52,12 @@ h3,h5
     margin: 0 auto;
     font-weight: lighter;
 }
-.choose
+.hide
 {
-    padding: 20px;
-    margin: 20px auto;
+    display: none;
 }
-#imgFile
-{
-    overflow: hidden;
-    display: block;
-    margin: 10px 0;
-}
-#plus
+button
 {
     display: block;
     margin: 0 auto;
-}
-.inp
-{
-    box-shadow: 0 0 5px 2px rgba(0,0,0,0.2);
-    padding: 20px;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-evenly;
-    align-content: center;
-    flex-wrap: wrap;
-}
-.inp>*
-{
-    flex-basis: 40%;
-    margin: 10px;
-    text-align: center;
-}
-.full
-{
-    flex-basis: 100%;
-}
-.ranged
-{
-    padding: 0;
-    box-shadow: none;
-}
-span
-{
-    display: block;
-    flex-basis: 100%;
-}
-a
-{
-    display: block;
-}
-hr{
-    margin: 10px auto;
-}
-p:first-of-type
-{
-    padding-left: 5px;
-    display: inline-block;
-}
-.feet
-{
-    overflow: hidden;
-    padding: 12px;
-    text-align: center;
-}
-#extend
-{
-    color: blue;
-    text-decoration: underline;
-}
-#extend:visited
-{
-    color: rgba(0,0,0,0.5);
-}
-#ext
-{
-    
-    padding: 5px;
-    display: none;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    justify-content: space-evenly;
-}
-#ext>*
-{
-    width: var(--size);
-    overflow: hidden;
-    padding: 15px;
-    display: block;
-    background-color: rgba(0,0,0,0.1);
-    margin: 7px;
-}
-.imageee
-{
-    width: var(--size);
-}
-.ap{
-    padding: 15px;
-}
-@media all and (max-width: 500px)
-{
-    body
-    {
-        font-size: 1.2em;
-    }
-    .heading
-    {
-        margin: 1px;
-    }
-    h1
-    {
-        font-size: 1.6em;
-    }
-    h3
-    {
-        font-size: 1em;
-    }
-    h5
-    {
-        font-size: 0.8em;
-    }
-    .inp>*, .ips>*
-    {
-        flex-basis: 100%;
-    }
-    label,p
-    {
-        font-size: 1.1em;
-    }
-    #ext>*
-    {
-        width: 100%;
-    }
-    .imageee
-    {
-        width: 100%;
-    }
 }

@@ -10,45 +10,64 @@
 </head>
 <body>
 <div class="wrapper">
-    <header>
+    <header class="hide"><!--remove hide-->
       <h1 class="heading">MEME GENERATOR</h1>
       <h3 class="heading">Life without fun is like food without salt</h3>
       <h5 class="heading">Create some awesome memes here</h5>
     </header>
     <div class="canvas">
-        <canvas id="c"></canvas>
+        <canvas id="c" height="400" width="400"></canvas>
     </div>
 
-
-    <!--mode select-->
-    <div class="choose">
-      <div class="img-choose">
-          <label for="imgFile">Upload your image</label>
-          <input type="file" name="imgFile" id="imgFile">
-      </div>
+    <div class="imginp">
+      <input id='img' type="file">
     </div>
 
-    <div class="app">
-      <button id="plus">+</button>
+    <div class="texter hide">
+      <label for="superText">Text:</label>
+      <input class="inp" type="text" name="superText" placeholder="Your Text">
+      <label for="superSize">Size:</label>
+      <input class="inp" class="ranged" type="range" min="10" name="superSize" value="32" max="100">
+      <label for="superY">Y-offset:</label>
+      <input class="inp" class="ranged" type="range" min="0" name="superY" value="100" max="640">
+      <label for="superY">X-offset:</label>
+      <input class="inp" class="ranged" type="range" min="0" name="superX" value="100" max="640">
+      <button class="save">Save</button>
     </div>
-        <!--struct-->
-    <div class="inp">
-        <span class="full">Start typing to see your text</span>
-        <label for="superText">Text:</label>
-        <textarea type="text" name="superText" id="superText" placeholder="Your Text"></textarea>
-        <label for="superSize">Size:</label>
-        <input class="ranged" type="range" min="10" name="superSize" value="32" max="100" id="superSize">
-        <label for="superY">Y-offset:</label>
-        <input class="ranged" type="range" min="0" name="superY" value="100" max="640" id="superY">
-        
-        <label for="superY">X-offset:</label>
-        <input class="ranged" type="range" min="0" name="superX" value="100" max="640" id="superX">
-        <button class="save">Save</button>
-        <span>'+' button is under development.
-          Click 'save' and
-          <a class="cor">Open this Link in new tab</a>
-        </span>
-    </div>
+
+  <div class="app">
+    <button id="load">load</button>
+    <button id="plus">+</button>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -59,7 +78,7 @@
 
 
         <!--template and a little above-->
-    <div class="feet">
+    <!--div class="feet">
         <p>*type in uppercase to make memes readable</p>
         <hr width="30%">
         <a href="#ext" id="extend">Download templates here</a>            
@@ -73,7 +92,7 @@
           <a href="imgs/temp3.jpg" download><img class="imageee" src="imgs/temp3.jpg"></a>
         </div>
         <a class="ap" href="#c">Back to top</a>
-    </div>
+    </div-->
 </div>
 <script src="canvas.js"></script>
 </body>

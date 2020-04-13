@@ -1,143 +1,125 @@
-//doms
+//dom
+const imgcont = document.querySelector('#img');
+//const c=document.querySelector('#c');
+//const ctx=c.getContext('2d');
+const plus=document.querySelector('#plus');
+const app=document.querySelector('.app');
+const c=document.querySelector('canvas');
+const context = c.getContext('2d');
 
-const imgFile=document.getElementById("imgFile");
-const test=document.getElementById("test");
-const c=document.getElementById("c");
-const refresh=document.getElementById("refresh");
-
-//canvas context
-const ctx=c.getContext("2d");
-
-
-//image API
-window.imgCan=new Image();
 //vars
+const fms= 100;
+const texter=document.querySelector('.texter').innerHTML;
+var uCount=1;
+const img = new Image();
+const frameRate=16;
+const e=window.event;
+const fillArr=[];
 
-window.high=100;
-window.topText="";
-window.bottomText="";
-window.height0="";
-window.width0="";
-
-//get image file and load it into image object
-
-const funk1=(e)=>
+//image loader
+const imgFunk=(eve)=>
 {
-    var files=e.target.files;
-
+    const file=eve.target.files;
     const read=new FileReader();
-    read.readAsDataURL(files[0]);
-    read.addEventListener("load",(e)=>
+    read.addEventListener('load',(e)=>
     {
-        window.imgCan.src=e.target.result;
+        img.src=e.target.result;
     });
+    read.readAsDataURL(file[0]);
 }
 
+imgcont.addEventListener('input',imgFunk);
+//checker
 
-imgFile.addEventListener("input",funk1);
-
-//on loading image
-window.imgCan.onload=()=>
-{
-    window.height0=window.imgCan.height;
-    window.width0=window.imgCan.width;
-    c.height=window.height0;
-    c.width=window.width0;
-    const w=screen.width;
-    const h=screen.height;
-    while(c.height >h  || c.width >w)
-    {
-        c.height/=1.1;
-        c.width/=1.1;
-    }
-    console.log(h,c.height,w,c.width);
-    ctx.drawImage(window.imgCan,0,0,c.width,c.height);
-}
-
-const sudo=[
-    document.querySelector("#superText"),
-    document.querySelector("#superSize"),
-    document.querySelector("#superY"),
-    document.querySelector("#superX")]
-window.sudoText="Your Text";
-window.sudoSize="42";
-window.sudoY="100";
-window.sudoX="100";
-let sudoLength=sudo.length;
-
-const fxnS=(e)=>
-{
-    if(e.target.id==="superText")
-    {
-        window.sudoText=e.target.value;
-    }
-    else if(e.target.id==="superSize")
-    {
-        window.sudoSize=e.target.value;
-    }
-    else if(e.target.id==="superY")
-    {
-        window.sudoY=e.target.value;
-    }
-    else if(e.target.id==="superX")
-    {
-        window.sudoX=e.target.value;
-    }
-    draw();
-}
-sudo.forEach((sud)=>{
-    sud.addEventListener("input",fxnS);
-});
-
-
-const draw=()=>
-{
-    ctx.drawImage(window.imgCan,0,0,c.width,c.height);
-    ctx.fillStyle="white";
-    ctx.textAlign='center';
-    ctx.font=`${window.sudoSize}px Teko`;
-    ctx.fillText(window.sudoText, parseInt(window.sudoX), parseInt(window.sudoY));
-    ctx.lineWidth=2;
-    ctx.strokeStyle='black';
-    ctx.strokeText(window.sudoText, parseInt(window.sudoX), parseInt(window.sudoY));
-    
-}
-const incre=()=>
-{
-    
-}
-
-document.getElementById("plus").addEventListener("click",incre);
-
-
-
-
-
-
-
-//save
-var save= document.querySelectorAll('.save');
-save.forEach((s)=>
-{   s.addEventListener('click', function (e) 
-    {
-        var dataURL = c.toDataURL('image/png');
-        document.querySelectorAll(".cor").forEach((i)=>
-        {
-            i.href=dataURL;
-        });
-        
-        console.log("saved");
-    });
-});
-
-
-//templates opener
-document.querySelector('#extend').addEventListener('click',(e)=>{
-    if(document.querySelector('#ext').style.display==="flex")
-    {
-        document.querySelector('#ext').style.display="none";
-    }
-    else
-        document.querySelector('#ext').style.display="flex";
+document.querySelector('#load').addEventListener('click',()=>{
+    fillArr.push(context.drawImage(img,100,100,100,100));
 })
 
+plus.addEventListener("click",()=>
+{
+    fillArr.push(new Fill());
+    //add event here
+});
+
+//fills class
+class Fill
+{
+    instantNo='Nan';
+    text="Your Text";
+    x=30;
+    y=30;
+    size=32;
+    sw=2
+    inputs=[];
+    constructor()
+    {
+        
+        //set object count no
+        this.instantNo=parseInt(uCount);
+
+        const ele=document.createElement('div');
+        ele.classList.add('texter');
+        ele.innerHTML=texter;
+        
+        const children=[...ele.children].filter(item=>item.tagName==="INPUT");
+        children.forEach((i)=>
+        {
+            i.setAttribute("data-no",uCount);
+            i.addEventListener('input',this.inputer);
+        });
+        app.appendChild(ele);
+        
+        //universal counter
+        uCount++;
+    }
+
+    make=()=>
+    {
+        context.font=`${this.size}px impact`;
+        context.fillStyle='red';
+        context.strokeStyle='blue';
+        context.lineWidth=this.sw;
+        context.textAlign='center';
+        context.fillText(`${this.text}`, this.x,this.y);
+        context.strokeText(`${this.text}`, this.x,this.y);
+    }
+
+    //called on each input(secret - ingredient ;p)
+    inputer=(e)=>
+    {
+        //interpret incomming input
+        if(e.target.name==='superText')
+        {
+            this.text=e.target.value;
+        }
+        else if(e.target.name==='superSize')
+        {
+            this.size=e.target.value;
+        }
+        else if(e.target.name==='superY')
+        {
+            this.y=e.target.value;
+        }
+        else if(e.target.name==='superX')
+        {
+            this.x=e.target.value;
+        }
+        //illusion to make it consize
+        this.make();
+    }
+};
+//fillArr.push();
+//draw function
+const draw=()=>
+{
+    //context.clearRect(0,0,c.width,c.height);
+    context.drawImage(img,0,0,c.width,c.height);
+    context.fillStyle='blue';
+    
+    fillArr.forEach(f=>f.final());
+    context.fillText("weeeeeeeee",20,20,150,150);
+    
+    window.requestAnimationFrame(draw);
+}
+
+window.requestAnimationFrame(draw);
