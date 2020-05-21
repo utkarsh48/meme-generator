@@ -14,7 +14,7 @@
     {
         font-size: inherit;
         overflow: hidden;
-        background:linear-gradient(rgb(255, 0, 76),rgb(255, 0, 76),rgb(117, 0, 0));
+        background:rgb(255, 0, 76);
         text-align: center;
         .heading
         {
@@ -40,20 +40,43 @@
         }
         .canvas{
             padding: 3% 0;
-            #c
-            {
-                margin: 0 auto;
-                display: block;
-                box-shadow: 0px 0px 15px 2px rgb(168, 168, 168);
+            #floatCanvas{
+                #c{
+                    margin: 0 auto;
+                    display: block;
+                    box-shadow: 0px 0px 15px 2px rgb(168, 168, 168);
+                }
             }
         }
         .toRight{
             border-left: 1px solid #aaa;
-            .imginp{
-                input
-                {
-                    display: block;
-                    margin: 5% auto;
+            .parentPin{
+                overflow: hidden;
+                padding: 3%;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                .pin{
+                    flex-basis: 30%;
+                    #pin{
+                        width: 100%;
+                        overflow: hidden;
+                    }
+                }
+                .save{
+                    padding: 0;
+                    flex-basis: 30%;
+                    overflow: hidden;
+                    #save{
+                        display: block;
+                        margin: auto;
+                        width: 100%;
+                    }
+                }
+                .imginp{
+                    flex-basis: 30%;
+                    max-width: 50%;
+                    overflow: hidden;
                 }
             }
             .app{
@@ -61,6 +84,10 @@
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
+                #plus{
+                    width: 25%;
+                    max-width: 50%;
+                }
                 .appendie
                 {
                     margin: 1em;
@@ -76,6 +103,7 @@
                         margin: 0.5em; 
                     }
                     .subAppendie{
+                        background-color: #ddd;
                         display: flex;
                         flex-direction: column;
                         padding: 2em;
@@ -86,7 +114,7 @@
     }
 }
 
-@media all and (max-width: 700px){
+@media all and (max-width: 830px){
     .wrapper{
         header{
             h1{
@@ -103,12 +131,34 @@
             }
             .canvas{
                 padding: 3%;
-                #c{
-                    margin: auto;
+                #floatCanvas{
+                    width: 100%;
+                    left: 0;
+                    top: 0;
+                    #c{
+                        margin: auto;
+                    }
                 }
             }
             .toRight{
                 border: none;
+                .parentPin{
+                    flex-wrap: wrap;
+                    .pin{
+                        flex-basis: 100%;
+                        margin-bottom: 1em;   
+                    }
+                    .save{
+                        flex-basis: 100%;
+                        margin-bottom: 1em;
+                    }
+                    .imginp{
+                        flex-basis: 100%;
+                        margin-bottom: 1em;
+                        width: 100%;
+                        max-width: 100%;
+                    }
+                }
             }
         }
     }
@@ -121,8 +171,10 @@
         }
         .canvas{
             padding: 0;
-            #c{
-                margin: 0;
+            #floatCanvas{
+                #c{
+                    margin: 0;
+                }
             }
         }
     }
@@ -135,8 +187,10 @@
                 width: 100%;
             }
             .canvas{
-                #c{
-                    margin:auto;
+                #floatCanvas{
+                    #c{
+                        margin:auto;
+                    }
                 }
             }
         }
@@ -144,7 +198,9 @@
 }
 
 
-
+button{
+    padding: 0.25em;
+}
 /****************************/
 .hide{
     display: none;

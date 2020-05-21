@@ -16,18 +16,38 @@
   </header>
   <div class="content">
     <div class="canvas borderAdder">
-      <canvas id="c"></canvas>
+      <div id="floatCanvas">
+        <canvas id="c"></canvas>
+      </div>
       <script>
         let miniWidth=(screen.width>screen.height)?screen.height: screen.width;//getting small value
-        miniWidth=(miniWidth<700)?miniWidth:miniWidth/2;
+        miniWidth=(miniWidth<830)?miniWidth:miniWidth/2;
         console.log(miniWidth);
-        document.querySelector('#c').width=0.9*miniWidth;
-        document.querySelector('#c').height=0.9*miniWidth;
+        document.querySelector('#c').width=0.8*miniWidth;
+        document.querySelector('#c').height=0.8*miniWidth;
       </script>
     </div>
     <div class="toRight borderAdder">
-      <div class="imginp">
-      <input id='img' type="file">
+      <div class="parentPin">
+        <div class="pin">
+          <button id="pin">Pin Canvas</button>
+          <script>
+            const clientCanvasContainer=document.querySelector('.canvas').offsetHeight;
+            document.querySelector('#pin').addEventListener('click',()=>{
+              if(document.querySelector('#floatCanvas').style.position=="fixed"){
+                document.querySelector('#floatCanvas').style.position="";
+              }
+              else{
+                document.querySelector('#floatCanvas').style.position="fixed";
+                document.querySelector('.canvas').style.height=`${clientCanvasContainer}px`;
+              }
+            });
+          </script>
+        </div>
+        <div class="save"><button id="save">Save</button></div>
+        <div class="imginp">
+          <input id='img' type="file">
+        </div>
       </div>
       <div class="app">
         <button id="plus">+</button>

@@ -16,8 +16,7 @@
 .wrapper header {
   font-size: inherit;
   overflow: hidden;
-  background: -webkit-gradient(linear, left top, left bottom, from(#ff004c), color-stop(#ff004c), to(#750000));
-  background: linear-gradient(#ff004c, #ff004c, #750000);
+  background: #ff004c;
   text-align: center;
 }
 
@@ -53,7 +52,7 @@
   padding: 3% 0;
 }
 
-.wrapper .content .canvas #c {
+.wrapper .content .canvas #floatCanvas #c {
   margin: 0 auto;
   display: block;
   -webkit-box-shadow: 0px 0px 15px 2px #a8a8a8;
@@ -64,9 +63,48 @@
   border-left: 1px solid #aaa;
 }
 
-.wrapper .content .toRight .imginp input {
+.wrapper .content .toRight .parentPin {
+  overflow: hidden;
+  padding: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.wrapper .content .toRight .parentPin .pin {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+}
+
+.wrapper .content .toRight .parentPin .pin #pin {
+  width: 100%;
+  overflow: hidden;
+}
+
+.wrapper .content .toRight .parentPin .save {
+  padding: 0;
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  overflow: hidden;
+}
+
+.wrapper .content .toRight .parentPin .save #save {
   display: block;
-  margin: 5% auto;
+  margin: auto;
+  width: 100%;
+}
+
+.wrapper .content .toRight .parentPin .imginp {
+  -ms-flex-preferred-size: 30%;
+      flex-basis: 30%;
+  max-width: 50%;
+  overflow: hidden;
 }
 
 .wrapper .content .toRight .app {
@@ -83,6 +121,11 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.wrapper .content .toRight .app #plus {
+  width: 25%;
+  max-width: 50%;
 }
 
 .wrapper .content .toRight .app .appendie {
@@ -109,6 +152,7 @@
 }
 
 .wrapper .content .toRight .app .appendie .subAppendie {
+  background-color: #ddd;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,7 +163,7 @@
   padding: 2em;
 }
 
-@media all and (max-width: 700px) {
+@media all and (max-width: 830px) {
   .wrapper header h1 {
     font-size: 1.5em;
   }
@@ -137,11 +181,37 @@
   .wrapper .content .canvas {
     padding: 3%;
   }
-  .wrapper .content .canvas #c {
+  .wrapper .content .canvas #floatCanvas {
+    width: 100%;
+    left: 0;
+    top: 0;
+  }
+  .wrapper .content .canvas #floatCanvas #c {
     margin: auto;
   }
   .wrapper .content .toRight {
     border: none;
+  }
+  .wrapper .content .toRight .parentPin {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .wrapper .content .toRight .parentPin .pin {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    margin-bottom: 1em;
+  }
+  .wrapper .content .toRight .parentPin .save {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    margin-bottom: 1em;
+  }
+  .wrapper .content .toRight .parentPin .imginp {
+    -ms-flex-preferred-size: 100%;
+        flex-basis: 100%;
+    margin-bottom: 1em;
+    width: 100%;
+    max-width: 100%;
   }
 }
 
@@ -157,7 +227,7 @@
   .content .canvas {
     padding: 0;
   }
-  .content .canvas #c {
+  .content .canvas #floatCanvas #c {
     margin: 0;
   }
 }
@@ -170,9 +240,13 @@
   .wrapper .content .borderAdder {
     width: 100%;
   }
-  .wrapper .content .canvas #c {
+  .wrapper .content .canvas #floatCanvas #c {
     margin: auto;
   }
+}
+
+button {
+  padding: 0.25em;
 }
 
 /****************************/
