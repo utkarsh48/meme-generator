@@ -9,6 +9,7 @@ var fillArr=new Array();
 const c=document.querySelector('canvas');
 const context = c.getContext('2d');
 
+context.fillRect(0,0,c.height,c.width);
 
 //dimentions of canvas
 var redrawImage=(img)=>{
@@ -56,7 +57,7 @@ class Texter{
         this.y=c.height/2;
         this.x=c.width/2;
         this.size=32;
-        this.text="Type Something";
+        this.text="";
         this.oColor="black";
         this.fColor="white";
         this.stroke=2;
@@ -106,19 +107,23 @@ class Texter{
         let tempSub=new Array();
         let tempSubway=new Array();
         tempSub.push(document.createElement('label'));
+        tempSub[0].classList.add('appendieLabel');
         tempSub[0].for='superText';
         tempSub[0].innerHTML="Text:";
         
         tempSub.push(document.createElement('input'));
+        tempSub[1].classList.add("appendieInput");
         tempSub[1].name='superText';
         tempSub[1].placeholder="Your Text Here";
         tempSub[1].type='text';
         
         tempSub.push(document.createElement('label'));
+        tempSub[2].classList.add('appendieLabel');
         tempSub[2].for='superSize';
         tempSub[2].innerHTML="Size:";
         
         tempSub.push(document.createElement('input'));
+        tempSub[3].classList.add("appendieInput");
         tempSub[3].name='superSize';
         tempSub[3].type="range";
         tempSub[3].min="10";
@@ -126,10 +131,12 @@ class Texter{
         tempSub[3].value="32";
 
         tempSub.push(document.createElement('label'));
+        tempSub[4].classList.add('appendieLabel');
         tempSub[4].for='superX';
         tempSub[4].innerHTML="X-offset:";
         
         tempSub.push(document.createElement('input'));
+        tempSub[5].classList.add("appendieInput");
         tempSub[5].name='superX';
         tempSub[5].type="range";
         tempSub[5].min="0";
@@ -137,10 +144,12 @@ class Texter{
         tempSub[5].value="10";
 
         tempSub.push(document.createElement('label'));
+        tempSub[6].classList.add('appendieLabel');
         tempSub[6].for='superY';
         tempSub[6].innerHTML="Y-offset:";
         
         tempSub.push(document.createElement('input'));
+        tempSub[7].classList.add("appendieInput");
         tempSub[7].name='superY';
         tempSub[7].type="range";
         tempSub[7].min="0";
@@ -150,37 +159,52 @@ class Texter{
         tempSub.push(document.createElement('button'));
         tempSub[8].id="subAppendieBtn";
         tempSub[8].innerHTML="Expand";
-        tempSub[8].addEventListener('click',()=>{
-            tempSub[9].classList.toggle("hide");
+        tempSub[8].addEventListener('click',(e)=>{
+            //tempSub[9].classList.toggle("hide")
+            if(e.target.innerHTML=='Collapse'){
+                e.target.innerHTML='Expand';
+                tempSub[9].style.display="none";
+            }
+            else{
+                tempSub[9].style.display="flex";
+                e.target.innerHTML='Collapse';
+            }
         });
 
         tempSub.push(document.createElement('div'));
-        tempSub[9].id="subAppendie";
-        tempSub[9].classList.add("hide");
-        
+        //tempSub[9].id="subAppendie";
+        tempSub[9].classList.add("subAppendie");
+        tempSub[9].style.display="none";
+
         tempSubway.push(document.createElement('label'));
+        tempSubway[0].classList.add('appendieLabel');
         tempSubway[0].for='fColor';
         tempSubway[0].innerHTML="Fill Color:";
 
         tempSubway.push(document.createElement('input'));
+        tempSubway[1].classList.add("appendieInput");
         tempSubway[1].name='fColor';
         tempSubway[1].type="color";
         tempSubway[1].value='#ffffff';
 
         tempSubway.push(document.createElement('label'));
+        tempSubway[2].classList.add('appendieLabel');
         tempSubway[2].for='oColor';
         tempSubway[2].innerHTML="Outline Color:";
 
         tempSubway.push(document.createElement('input'));
+        tempSubway[3].classList.add("appendieInput");
         tempSubway[3].name='oColor';
         tempSubway[3].value='#000000';
         tempSubway[3].type="color";
 
         tempSubway.push(document.createElement('label'));
+        tempSubway[4].classList.add('appendieLabel');
         tempSubway[4].for='superStroke';
         tempSubway[4].innerHTML="Outline Width:";
         
         tempSubway.push(document.createElement('input'));
+        tempSubway[5].classList.add("appendieInput");
         tempSubway[5].name='superStroke';
         tempSubway[5].type="range";
         tempSubway[5].min="0";
@@ -188,14 +212,14 @@ class Texter{
         tempSubway[5].value="2";
 
         tempSubway.forEach((tw)=>{
-            tw.classList.add('inplab');
+//           tw.classList.add('inplab');
             tw.addEventListener('input',(e)=>{this.realize(e)
             });
             tempSub[9].appendChild(tw);
         });
 
         tempSub.forEach((t)=>{
-            t.classList.add('inplab');
+//            t.classList.add('inplab');
             t.addEventListener('input',(e)=>{this.realize(e)
             });
             temp.appendChild(t);

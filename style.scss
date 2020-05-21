@@ -29,33 +29,62 @@
         }
         p
         {
-            margin: 0.25em auto;
+            margin: 0.3em auto;
             font-weight: lighter;
         }
     }
     .content{
         display: flex;
-        flex-wrap: wrap;
-        .canvas
-        {
-            flex-basis: 70%;
-            width: auto;
-            min-width: 80%;
-            margin: 0 auto;
-            padding: 5%;
+        .borderAdder{
+            flex: 1;
+        }
+        .canvas{
+            padding: 3% 0;
             #c
             {
                 margin: 0 auto;
                 display: block;
                 box-shadow: 0px 0px 15px 2px rgb(168, 168, 168);
-                border: 1px solid rgb(179, 179, 179);
+            }
+        }
+        .toRight{
+            border-left: 1px solid #aaa;
+            .imginp{
+                input
+                {
+                    display: block;
+                    margin: 5% auto;
+                }
+            }
+            .app{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                .appendie
+                {
+                    margin: 1em;
+                    box-shadow: 0 0 15px 2px rgb(168, 168, 168);
+                    width: 100%;
+                    padding: 1em;
+                    display: flex;
+                    flex-direction: column;
+                    .appendieInput{
+                        margin-bottom: 1em;
+                    }
+                    .appendieLabel{
+                        margin: 0.5em; 
+                    }
+                    .subAppendie{
+                        display: flex;
+                        flex-direction: column;
+                        padding: 2em;
+                    }
+                }
             }
         }
     }
 }
-
-
-
 
 @media all and (max-width: 700px){
     .wrapper{
@@ -68,10 +97,47 @@
             }
         }
         .content{
+            flex-wrap: wrap;
+            .borderAdder{
+                flex-basis: 100%;
+            }
             .canvas{
+                padding: 3%;
+                #c{
+                    margin: auto;
+                }
             }
             .toRight{
-
+                border: none;
+            }
+        }
+    }
+}
+@media all and (max-width: 500px){
+    .content{
+        flex-wrap: wrap;
+        .borderAdder{
+            flex-basis: 100%;
+        }
+        .canvas{
+            padding: 0;
+            #c{
+                margin: 0;
+            }
+        }
+    }
+}
+@media all and (max-width: 290px){
+    .wrapper{
+        .content{
+            flex-wrap: wrap;
+            .borderAdder{
+                width: 100%;
+            }
+            .canvas{
+                #c{
+                    margin:auto;
+                }
             }
         }
     }
@@ -79,11 +145,7 @@
 
 
 
-
 /****************************/
 .hide{
     display: none;
-}
-.borderAdder{
-    border: 1px solid teal;
 }

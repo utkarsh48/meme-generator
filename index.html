@@ -12,15 +12,15 @@
 <div class="wrapper">
   <header><!--remove hide-->
     <h1 class="heading">MEME GENERATOR</h1>
-    <p class="heading">Life without fun is like food without salt</p>
     <p class="heading">Create some awesome memes here</p>
   </header>
   <div class="content">
     <div class="canvas borderAdder">
       <canvas id="c"></canvas>
       <script>
-        let miniWidth=Math.min(screen.width,screen.height);
+        let miniWidth=(screen.width>screen.height)?screen.height: screen.width;//getting small value
         miniWidth=(miniWidth<700)?miniWidth:miniWidth/2;
+        console.log(miniWidth);
         document.querySelector('#c').width=0.9*miniWidth;
         document.querySelector('#c').height=0.9*miniWidth;
       </script>
