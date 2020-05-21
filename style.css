@@ -1,63 +1,82 @@
-:root
-{
-    --size:40%;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comic Neue', sans-serif;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
 }
-*
-{
-    margin: 0;
-    padding: 0;
-    font-family: 'Comic Neue', sans-serif;
-    box-sizing: border-box;
-    transition-duration: 0.3s;
+
+.wrapper {
+  font-size: 1em;
+  color: rgba(0, 0, 0, 0.8);
 }
-.wrapper
-{
-    color: rgba(0,0,0,0.8);
+
+.wrapper header {
+  font-size: inherit;
+  overflow: hidden;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ff004c), color-stop(#ff004c), to(#750000));
+  background: linear-gradient(#ff004c, #ff004c, #750000);
+  text-align: center;
 }
-.canvas
-{
-    width: auto;
-    min-width: 80%;
-    margin: 0 auto;
-    box-shadow: 0 0 15px 5px rgba(0,0,0,0.3);
-    padding: 12px;
+
+.wrapper header .heading {
+  color: white;
 }
-#c
-{
-    margin: 0 auto;
-    display: block;
-    border: 1px solid rgb(179, 179, 179);
+
+.wrapper header h1 {
+  font-family: sans-serif;
+  font-weight: 700;
+  font-size: 3em;
+  margin: 0.25em auto;
 }
-header
-{
-    padding: 12px;
-    overflow: hidden;
-    background:linear-gradient(rgb(255, 0, 76),rgb(255, 0, 76),rgb(117, 0, 0));
-    text-align: center;
+
+.wrapper header p {
+  margin: 0.25em auto;
+  font-weight: lighter;
 }
-.heading
-{
-    padding: 5px;
-    color: white;
+
+.wrapper .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
-h1
-{
-    font-family: sans-serif;
-    font-weight: 700;
-    font-size: 3em;
-    margin: 24px auto;
+
+.wrapper .content .canvas {
+  -ms-flex-preferred-size: 70%;
+      flex-basis: 70%;
+  width: auto;
+  min-width: 80%;
+  margin: 0 auto;
+  padding: 5%;
 }
-h3,h5
-{
-    margin: 0 auto;
-    font-weight: lighter;
+
+.wrapper .content .canvas #c {
+  margin: 0 auto;
+  display: block;
+  -webkit-box-shadow: 0px 0px 15px 2px #a8a8a8;
+          box-shadow: 0px 0px 15px 2px #a8a8a8;
+  border: 1px solid #b3b3b3;
 }
-.hide
-{
-    display: none;
+
+@media all and (max-width: 700px) {
+  .wrapper header h1 {
+    font-size: 1.5em;
+  }
+  .wrapper header p {
+    font-size: 0.6em;
+  }
 }
-button
-{
-    display: block;
-    margin: 0 auto;
+
+/****************************/
+.hide {
+  display: none;
 }
+
+.borderAdder {
+  border: 1px solid teal;
+}
+/*# sourceMappingURL=style.css.map */
