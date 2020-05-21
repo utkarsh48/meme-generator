@@ -94,7 +94,7 @@
   overflow: hidden;
 }
 
-.wrapper .content .toRight .parentPin .save #save {
+.wrapper .content .toRight .parentPin .save .saveBtn1 {
   display: block;
   margin: auto;
   width: 100%;
