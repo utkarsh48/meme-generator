@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="wrapper">
-  <header><!--remove hide-->
+  <header>
     <h1 class="heading">MEME GENERATOR</h1>
     <p class="heading">Create some awesome memes here</p>
   </header>
@@ -44,7 +44,12 @@
             });
           </script>
         </div>
-        <div class="save"><button class="saveBtn1">Save</button></div>
+        <div class="save">
+          <button class="saveBtn1">Save</button>
+          <script>
+            const saveBtn1=document.querySelector(".saveBtn1");
+          </script>
+        </div>
         <div class="imginp">
           <input id='img' type="file">
         </div>
