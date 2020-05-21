@@ -21,7 +21,7 @@
         }
         h1
         {
-            font-family: 'Indie Flower',sans-serif;
+            font-family: 'Teko',sans-serif;
             font-weight: 700;
             font-size: 3em;
             margin: 0.5em auto;
@@ -36,7 +36,7 @@
         background-color: #def;
         text-align: center;
         padding: 10px;
-        font-size: 1em;
+        font-size: 1rem;
         h3{
             font-family: 'Comic Neue', sans-serif;
             font-size: 1.4em;
@@ -46,6 +46,7 @@
         }
         li{
             list-style-type: none;
+            font-size: 0.9em;
         }
     }
     .content{
@@ -131,6 +132,7 @@
         }
     }
     footer{
+        margin-top: 10px;
         text-align: center;
         padding: 2em;
         li{
@@ -152,15 +154,15 @@
     .wrapper{
         header{
             h1{
-                font-size: 1.5em;
+                font-size: 2em;
             }
             p{
-                font-size: 0.6em;
+                font-size: 1em;
             }
         }
         .intro{
             li{
-                font-size: 0.6em;
+                font-size: 1em;
             }
         }
         .content{

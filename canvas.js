@@ -94,7 +94,7 @@ class Texter{
     }
     create=()=>
     {
-        context.font=`${this.size}px impact`;
+        context.font=`${this.size}px Teko`;
         context.fillStyle=this.fColor;
         context.strokeStyle=this.oColor;
         context.lineWidth=this.stroke;

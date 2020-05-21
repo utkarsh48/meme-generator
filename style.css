@@ -24,7 +24,7 @@
 }
 
 .wrapper header h1 {
-  font-family: 'Indie Flower',sans-serif;
+  font-family: 'Teko',sans-serif;
   font-weight: 700;
   font-size: 3em;
   margin: 0.5em auto;
@@ -39,7 +39,7 @@
   background-color: #def;
   text-align: center;
   padding: 10px;
-  font-size: 1em;
+  font-size: 1rem;
 }
 
 .wrapper .intro h3 {
@@ -53,6 +53,7 @@
 
 .wrapper .intro li {
   list-style-type: none;
+  font-size: 0.9em;
 }
 
 .wrapper .content {
@@ -192,6 +193,7 @@
 }
 
 .wrapper footer {
+  margin-top: 10px;
   text-align: center;
   padding: 2em;
 }
@@ -213,13 +215,13 @@
 
 @media all and (max-width: 830px) {
   .wrapper header h1 {
-    font-size: 1.5em;
+    font-size: 2em;
   }
   .wrapper header p {
-    font-size: 0.6em;
+    font-size: 1em;
   }
   .wrapper .intro li {
-    font-size: 0.6em;
+    font-size: 1em;
   }
   .wrapper .content {
     -ms-flex-wrap: wrap;
