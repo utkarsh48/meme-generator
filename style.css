@@ -16,7 +16,6 @@
 .wrapper header {
   font-size: inherit;
   overflow: hidden;
-  background: #ff004c;
   text-align: center;
 }
 
@@ -25,15 +24,35 @@
 }
 
 .wrapper header h1 {
-  font-family: sans-serif;
+  font-family: 'Indie Flower',sans-serif;
   font-weight: 700;
   font-size: 3em;
-  margin: 0.25em auto;
+  margin: 0.5em auto;
 }
 
 .wrapper header p {
-  margin: 0.3em auto;
+  margin: 0.7em auto;
   font-weight: lighter;
+}
+
+.wrapper .intro {
+  background-color: #def;
+  text-align: center;
+  padding: 10px;
+  font-size: 1em;
+}
+
+.wrapper .intro h3 {
+  font-family: 'Comic Neue', sans-serif;
+  font-size: 1.4em;
+}
+
+.wrapper .intro h3:hover {
+  cursor: pointer;
+}
+
+.wrapper .intro li {
+  list-style-type: none;
 }
 
 .wrapper .content {
@@ -78,6 +97,9 @@
 }
 
 .wrapper .content .toRight .parentPin .pin {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
   -ms-flex-preferred-size: 30%;
       flex-basis: 30%;
 }
@@ -88,6 +110,9 @@
 }
 
 .wrapper .content .toRight .parentPin .save {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
   padding: 0;
   -ms-flex-preferred-size: 30%;
       flex-basis: 30%;
@@ -101,6 +126,9 @@
 }
 
 .wrapper .content .toRight .parentPin .imginp {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
   -ms-flex-preferred-size: 30%;
       flex-basis: 30%;
   max-width: 50%;
@@ -163,11 +191,34 @@
   padding: 2em;
 }
 
+.wrapper footer {
+  text-align: center;
+  padding: 2em;
+}
+
+.wrapper footer li {
+  list-style-type: none;
+  color: white;
+}
+
+.wrapper footer li a {
+  display: inline-block;
+  color: white;
+  opacity: 0.7;
+}
+
+.wrapper footer li a:hover {
+  opacity: 1;
+}
+
 @media all and (max-width: 830px) {
   .wrapper header h1 {
     font-size: 1.5em;
   }
   .wrapper header p {
+    font-size: 0.6em;
+  }
+  .wrapper .intro li {
     font-size: 0.6em;
   }
   .wrapper .content {

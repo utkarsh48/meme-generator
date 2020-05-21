@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <title>MEME generator!</title>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -12,8 +14,27 @@
 <div class="wrapper">
   <header>
     <h1 class="heading">MEME GENERATOR</h1>
-    <p class="heading">Create some awesome memes here</p>
+    <p class="heading">Create awesome memes here</p>
   </header>
+  <script>
+    const bgCol=`rgb(${Math.random()*150},${Math.random()*150},${Math.random()*150})`
+    document.querySelector("header").style.background=bgCol!="rgb(255,255,255)"?bgCol:'rgb(255,0,76)';
+  </script>
+  <div class="intro">
+    <h3>Instructions</h3>
+    <script>
+      document.querySelector("div.intro > h3").addEventListener("click",()=>{
+        document.querySelector("div.intro > ul").classList.toggle("hide");
+      })
+    </script>
+    <ul>
+      <li>Upload your own Image.</li>
+      <li>You can pin/unpin the canvas, while scrolling.</li>
+      <li>You can add any no. of texts by clicking "Add Text".</li>
+      <li>Images with empty space always results in better meme.</li>
+      <li>Click on Instructions to dismiss</li>
+    </ul>
+  </div>
   <div class="content">
     <div class="canvas borderAdder">
       <div id="floatCanvas">
@@ -22,7 +43,6 @@
       <script>
         let miniWidth=(screen.width>screen.height)?screen.height: screen.width;//getting small value
         miniWidth=(miniWidth<830)?miniWidth:miniWidth/2;
-        console.log(miniWidth);
         document.querySelector('#c').width=0.8*miniWidth;
         document.querySelector('#c').height=0.8*miniWidth;
       </script>
@@ -61,10 +81,18 @@
         </div>
       </div>
       <div class="app">
-        <button id="plus">+</button>
+        <button id="plus">Add Text</button>
       </div>
     </div>
   </div>
+  <footer>
+    <ul>
+      <li>Feedback: <a href="@mailto:utkarshdhiman48@gmail.com">Email</a></li>
+    </ul>
+  </footer>
+  <script>
+    document.querySelector("footer").style.background=bgCol!="rgb(255,255,255)"?bgCol:'rgb(255,0,76)';
+  </script>
 </div>
 <script src="canvas.js"></script>
 </body>

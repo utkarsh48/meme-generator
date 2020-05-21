@@ -24,6 +24,7 @@ var redrawImage=(img)=>{
     }
     c.height=img.height;
     c.width=img.width;
+    context.clearRect(0,0,img.width,img.height);
     context.drawImage(img,0,0,img.width,img.height);
 }
     
