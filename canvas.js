@@ -17,7 +17,7 @@ var redrawImage=(img)=>{
     {
         img.height/=1.1;
         img.width/=1.1;
-        if(c.width==0)/////////////////////////////////remove
+        if(c.width==0)//exception
         {
             break;
         }
@@ -55,8 +55,8 @@ imgBg.addEventListener('change',fileHandler);
 //text inputs
 class Texter{
     constructor(){
-        this.y=c.height/2;
-        this.x=c.width/2;
+        this.y=25;
+        this.x=25;
         this.size=32;
         this.text="";
         this.oColor="black";
@@ -105,122 +105,120 @@ class Texter{
     superAppend=()=>{
         let temp = document.createElement('div');
         temp.classList.add(`instantNo${window.num}`, 'appendie');
-        let tempSub=new Array();
-        let tempSubway=new Array();
-        tempSub.push(document.createElement('label'));
-        tempSub[0].classList.add('appendieLabel');
-        tempSub[0].for='superText';
-        tempSub[0].innerHTML="Text:";
-        
-        tempSub.push(document.createElement('input'));
-        tempSub[1].classList.add("appendieInput");
-        tempSub[1].name='superText';
-        tempSub[1].placeholder="Your Text Here";
-        tempSub[1].type='text';
-        
-        tempSub.push(document.createElement('label'));
-        tempSub[2].classList.add('appendieLabel');
-        tempSub[2].for='superSize';
-        tempSub[2].innerHTML="Size:";
-        
-        tempSub.push(document.createElement('input'));
-        tempSub[3].classList.add("appendieInput");
-        tempSub[3].name='superSize';
-        tempSub[3].type="range";
-        tempSub[3].min="10";
-        tempSub[3].max="100";
-        tempSub[3].value="32";
+        let tempArrayOfInputs=new Array();
+        let childTempArrayOfInputs=new Array();
+        tempArrayOfInputs.push(document.createElement('label'));
+        tempArrayOfInputs[0].classList.add('appendieLabel');
+        tempArrayOfInputs[0].for='superText';
+        tempArrayOfInputs[0].innerHTML="Text:";
 
-        tempSub.push(document.createElement('label'));
-        tempSub[4].classList.add('appendieLabel');
-        tempSub[4].for='superX';
-        tempSub[4].innerHTML="X-offset:";
-        
-        tempSub.push(document.createElement('input'));
-        tempSub[5].classList.add("appendieInput");
-        tempSub[5].name='superX';
-        tempSub[5].type="range";
-        tempSub[5].min="0";
-        tempSub[5].max="640";
-        tempSub[5].value="10";
+        tempArrayOfInputs.push(document.createElement('input'));
+        tempArrayOfInputs[1].classList.add("appendieInput");
+        tempArrayOfInputs[1].name='superText';
+        tempArrayOfInputs[1].placeholder="Your Text Here";
+        tempArrayOfInputs[1].type='text';
 
-        tempSub.push(document.createElement('label'));
-        tempSub[6].classList.add('appendieLabel');
-        tempSub[6].for='superY';
-        tempSub[6].innerHTML="Y-offset:";
-        
-        tempSub.push(document.createElement('input'));
-        tempSub[7].classList.add("appendieInput");
-        tempSub[7].name='superY';
-        tempSub[7].type="range";
-        tempSub[7].min="0";
-        tempSub[7].max="640";
-        tempSub[7].value="10"
+        tempArrayOfInputs.push(document.createElement('label'));
+        tempArrayOfInputs[2].classList.add('appendieLabel');
+        tempArrayOfInputs[2].for='superSize';
+        tempArrayOfInputs[2].innerHTML="Size:";
 
-        tempSub.push(document.createElement('button'));
-        tempSub[8].id="subAppendieBtn";
-        tempSub[8].innerHTML="Expand";
-        tempSub[8].addEventListener('click',(e)=>{
-            //tempSub[9].classList.toggle("hide")
+        tempArrayOfInputs.push(document.createElement('input'));
+        tempArrayOfInputs[3].classList.add("appendieInput");
+        tempArrayOfInputs[3].name='superSize';
+        tempArrayOfInputs[3].type="range";
+        tempArrayOfInputs[3].min="10";
+        tempArrayOfInputs[3].max="100";
+        tempArrayOfInputs[3].value="32";
+
+        tempArrayOfInputs.push(document.createElement('label'));
+        tempArrayOfInputs[4].classList.add('appendieLabel');
+        tempArrayOfInputs[4].for='superX';
+        tempArrayOfInputs[4].innerHTML="X-offset:";
+
+        tempArrayOfInputs.push(document.createElement('input'));
+        tempArrayOfInputs[5].classList.add("appendieInput");
+        tempArrayOfInputs[5].name='superX';
+        tempArrayOfInputs[5].type="range";
+        tempArrayOfInputs[5].min="0";
+        tempArrayOfInputs[5].max="640";
+        tempArrayOfInputs[5].value="25";
+
+        tempArrayOfInputs.push(document.createElement('label'));
+        tempArrayOfInputs[6].classList.add('appendieLabel');
+        tempArrayOfInputs[6].for='superY';
+        tempArrayOfInputs[6].innerHTML="Y-offset:";
+
+        tempArrayOfInputs.push(document.createElement('input'));
+        tempArrayOfInputs[7].classList.add("appendieInput");
+        tempArrayOfInputs[7].name='superY';
+        tempArrayOfInputs[7].type="range";
+        tempArrayOfInputs[7].min="0";
+        tempArrayOfInputs[7].max="640";
+        tempArrayOfInputs[7].value="25"
+
+        tempArrayOfInputs.push(document.createElement('button'));
+        tempArrayOfInputs[8].id="subAppendieBtn";
+        tempArrayOfInputs[8].innerHTML="Expand";
+        tempArrayOfInputs[8].addEventListener('click',(e)=>{
+            //tempArrayOfInputs[9].classList.toggle("hide")
             if(e.target.innerHTML=='Collapse'){
                 e.target.innerHTML='Expand';
-                tempSub[9].style.display="none";
+                tempArrayOfInputs[9].style.display="none";
             }
             else{
-                tempSub[9].style.display="flex";
+                tempArrayOfInputs[9].style.display="flex";
                 e.target.innerHTML='Collapse';
             }
         });
 
-        tempSub.push(document.createElement('div'));
-        //tempSub[9].id="subAppendie";
-        tempSub[9].classList.add("subAppendie");
-        tempSub[9].style.display="none";
+        tempArrayOfInputs.push(document.createElement('div'));
+        //tempArrayOfInputs[9].id="subAppendie";
+        tempArrayOfInputs[9].classList.add("subAppendie");
+        tempArrayOfInputs[9].style.display="none";
 
-        tempSubway.push(document.createElement('label'));
-        tempSubway[0].classList.add('appendieLabel');
-        tempSubway[0].for='fColor';
-        tempSubway[0].innerHTML="Fill Color:";
+        childTempArrayOfInputs.push(document.createElement('label'));
+        childTempArrayOfInputs[0].classList.add('appendieLabel');
+        childTempArrayOfInputs[0].for='fColor';
+        childTempArrayOfInputs[0].innerHTML="Fill Color:";
 
-        tempSubway.push(document.createElement('input'));
-        tempSubway[1].classList.add("appendieInput");
-        tempSubway[1].name='fColor';
-        tempSubway[1].type="color";
-        tempSubway[1].value='#ffffff';
+        childTempArrayOfInputs.push(document.createElement('input'));
+        childTempArrayOfInputs[1].classList.add("appendieInput");
+        childTempArrayOfInputs[1].name='fColor';
+        childTempArrayOfInputs[1].type="color";
+        childTempArrayOfInputs[1].value='#ffffff';
 
-        tempSubway.push(document.createElement('label'));
-        tempSubway[2].classList.add('appendieLabel');
-        tempSubway[2].for='oColor';
-        tempSubway[2].innerHTML="Outline Color:";
+        childTempArrayOfInputs.push(document.createElement('label'));
+        childTempArrayOfInputs[2].classList.add('appendieLabel');
+        childTempArrayOfInputs[2].for='oColor';
+        childTempArrayOfInputs[2].innerHTML="Outline Color:";
 
-        tempSubway.push(document.createElement('input'));
-        tempSubway[3].classList.add("appendieInput");
-        tempSubway[3].name='oColor';
-        tempSubway[3].value='#000000';
-        tempSubway[3].type="color";
+        childTempArrayOfInputs.push(document.createElement('input'));
+        childTempArrayOfInputs[3].classList.add("appendieInput");
+        childTempArrayOfInputs[3].name='oColor';
+        childTempArrayOfInputs[3].value='#000000';
+        childTempArrayOfInputs[3].type="color";
 
-        tempSubway.push(document.createElement('label'));
-        tempSubway[4].classList.add('appendieLabel');
-        tempSubway[4].for='superStroke';
-        tempSubway[4].innerHTML="Outline Width:";
-        
-        tempSubway.push(document.createElement('input'));
-        tempSubway[5].classList.add("appendieInput");
-        tempSubway[5].name='superStroke';
-        tempSubway[5].type="range";
-        tempSubway[5].min="0";
-        tempSubway[5].max="15";
-        tempSubway[5].value="2";
+        childTempArrayOfInputs.push(document.createElement('label'));
+        childTempArrayOfInputs[4].classList.add('appendieLabel');
+        childTempArrayOfInputs[4].for='superStroke';
+        childTempArrayOfInputs[4].innerHTML="Outline Width:";
 
-        tempSubway.forEach((tw)=>{
-//           tw.classList.add('inplab');
+        childTempArrayOfInputs.push(document.createElement('input'));
+        childTempArrayOfInputs[5].classList.add("appendieInput");
+        childTempArrayOfInputs[5].name='superStroke';
+        childTempArrayOfInputs[5].type="range";
+        childTempArrayOfInputs[5].min="0";
+        childTempArrayOfInputs[5].max="15";
+        childTempArrayOfInputs[5].value="2";
+
+        childTempArrayOfInputs.forEach((tw)=>{
             tw.addEventListener('input',(e)=>{this.realize(e)
             });
-            tempSub[9].appendChild(tw);
+            tempArrayOfInputs[9].appendChild(tw);
         });
 
-        tempSub.forEach((t)=>{
-//            t.classList.add('inplab');
+        tempArrayOfInputs.forEach((t)=>{
             t.addEventListener('input',(e)=>{this.realize(e)
             });
             temp.appendChild(t);

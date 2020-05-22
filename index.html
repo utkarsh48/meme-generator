@@ -54,11 +54,13 @@
           <button id="pin">Pin Canvas</button>
           <script>
             const clientCanvasContainer=document.querySelector('.canvas').offsetHeight;
-            document.querySelector('#pin').addEventListener('click',()=>{
+            document.querySelector('#pin').addEventListener('click',(e)=>{
               if(document.querySelector('#floatCanvas').style.position=="fixed"){
                 document.querySelector('#floatCanvas').style.position="";
+                e.target.innerHTML="Pin Canvas";
               }
               else{
+                e.target.innerHTML="Unpin Canvas";
                 document.querySelector('#floatCanvas').style.position="fixed";
                 document.querySelector('.canvas').style.height=`${clientCanvasContainer}px`;
               }
@@ -88,6 +90,7 @@
   </div>
   <footer>
     <ul>
+      <li>Created by Utkarsh</li>
       <li>Feedback: <a href="@mailto:utkarshdhiman48@gmail.com">Email</a></li>
     </ul>
   </footer>

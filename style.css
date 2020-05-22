@@ -28,6 +28,7 @@
   font-weight: 700;
   font-size: 3em;
   margin: 0.5em auto;
+  text-shadow: 0px 3px 5px black;
 }
 
 .wrapper header p {
@@ -44,7 +45,7 @@
 
 .wrapper .intro h3 {
   font-family: 'Comic Neue', sans-serif;
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 .wrapper .intro h3:hover {
@@ -52,6 +53,7 @@
 }
 
 .wrapper .intro li {
+  margin: 0.25em;
   list-style-type: none;
   font-size: 0.9em;
 }
@@ -181,7 +183,7 @@
 }
 
 .wrapper .content .toRight .app .appendie .subAppendie {
-  background-color: #ddd;
+  background-color: #def;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -199,6 +201,7 @@
 }
 
 .wrapper footer li {
+  margin: 0.25em;
   list-style-type: none;
   color: white;
 }
