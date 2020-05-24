@@ -38,6 +38,7 @@
         text-align: center;
         padding: 10px;
         font-size: 1rem;
+        overflow: hidden;
         h3{
             font-family: 'Comic Neue', sans-serif;
             font-size: 1.3em;
@@ -59,6 +60,7 @@
         .canvas{
             padding: 3% 0;
             #floatCanvas{
+                z-index: 99;
                 #c{
                     margin: 0 auto;
                     display: block;
@@ -89,7 +91,7 @@
                     overflow: hidden;
                     .saveBtn1{
                         color: white;
-                        background-color: rgb(0, 128, 255);
+                        background-color: rgb(42, 70, 99);
                         border: 2px solid #eee;
                         border-radius: 5%;
                         padding: 0.25rem;
@@ -99,8 +101,10 @@
                         display: block;
                         margin: auto;
                         width: 100%;
+                        opacity: 0.8;
                     }
-                    .saveBtn1:active{
+                    .saveBtn1:focus{
+                        opacity: 1;
                         border: 2px solid black;
                     }
                 }
@@ -166,17 +170,23 @@
         margin-top: 2.5em;
         text-align: center;
         padding: 1.75em;
-        li{
-            margin: 0.25em;
-            list-style-type: none;
-            color: white;
-            a{
-                display: inline-block;
+        ul{
+            display: flex;
+            justify-content: center;
+            li{
+                margin: 0.25em;
+                list-style-type: none;
                 color: white;
-                opacity: 0.7;
-            }
-            a:hover{
-                opacity: 1;
+                a{
+                    text-decoration: none;
+                    display: inline-block;
+                    color: white;
+                    opacity: 0.7;
+                    margin-right: 10px;
+                }
+                a:hover{
+                    opacity: 1;
+                }
             }
         }
     }
@@ -230,6 +240,12 @@
                         margin-bottom: 1em;
                         width: 100%;
                         max-width: 100%;
+                    }
+                }
+                .app{
+                    #plus{
+                        width:80%;
+                        max-width: 90%;
                     }
                 }
             }
