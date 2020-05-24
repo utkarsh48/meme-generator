@@ -321,7 +321,7 @@
     width: 100%;
     max-width: 100%;
   }
-  .wrapper .content .toRight .app #plus {
+  .wrapper .content .toRight .plusBtnParent #plus {
     width: 80%;
     max-width: 90%;
   }
