@@ -193,11 +193,6 @@
           justify-content: center;
 }
 
-.wrapper .content .toRight .app #plus {
-  width: 25%;
-  max-width: 50%;
-}
-
 .wrapper .content .toRight .app .appendie {
   margin: 1em;
   -webkit-box-shadow: 0 0 15px 2px #a8a8a8;
@@ -231,6 +226,13 @@
       -ms-flex-direction: column;
           flex-direction: column;
   padding: 2em;
+}
+
+.wrapper .content .toRight .plusBtnParent #plus {
+  display: block;
+  margin: auto;
+  width: 25%;
+  max-width: 50%;
 }
 
 .wrapper footer {
